@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Initialize the game board
-board=(" " " " " " " " " " " " " ")
+board=("0" "1" "2" "3" "4" "5" "6" "7" "8")
 
 # Function to display the board
 print_board() {
@@ -39,7 +39,7 @@ check_winner() {
 # Function to check for a draw
 check_draw() {
     for cell in "${board[@]}"; do
-        if [[ $cell == " " ]]; then
+        if [[ $cell != "X" && $cell != "O" ]]; then
             return
         fi
     done
@@ -52,12 +52,10 @@ player="X"
 
 while true; do
     print_board
-
     echo "Player $player, enter your move (0-8):"
     read -r move
 
-#    if [[ ! $move =~ ^[0-8]$ ]] || [[ ${board[$move]} != " " ]]; then
-     if [[ ! $move =~ ^[0-8]$ ]] || [[ ${board[$move]} == "X" || ${board[$move]} == "O" ]]; then
+    if [[ ! $move =~ ^[0-8]$ ]] || [[ ${board[$move]} == "X" || ${board[$move]} == "O" ]]; then
         echo "Invalid move. Try again."
         sleep 1
         continue
