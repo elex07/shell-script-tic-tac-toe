@@ -1,16 +1,16 @@
 #!/bin/bash
 
 # Initialize the game board
-board=("0" "1" "2" "3" "4" "5" "6" "7" "8")
+board=("\e[90m0\e[0m" "\e[90m1\e[0m" "\e[90m2\e[0m" "\e[90m3\e[0m" "\e[90m4\e[0m" "\e[90m5\e[0m" "\e[90m6\e[0m" "\e[90m7\e[0m" "\e[90m8\e[0m")
 
 # Function to display the board
 print_board() {
     clear
-    echo " ${board[0]} | ${board[1]} | ${board[2]} "
-    echo "---|---|---"
-    echo " ${board[3]} | ${board[4]} | ${board[5]} "
-    echo "---|---|---"
-    echo " ${board[6]} | ${board[7]} | ${board[8]} "
+    echo -e " ${board[0]} | ${board[1]} | ${board[2]} "
+    echo -e "---|---|---"
+    echo -e " ${board[3]} | ${board[4]} | ${board[5]} "
+    echo -e "---|---|---"
+    echo -e " ${board[6]} | ${board[7]} | ${board[8]} "
 }
 
 # Function to check if someone has won
@@ -52,6 +52,7 @@ player="X"
 
 while true; do
     print_board
+
     echo "Player $player, enter your move (0-8):"
     read -r move
 
@@ -62,7 +63,6 @@ while true; do
     fi
 
     board[$move]=$player
-
     check_winner
     check_draw
 
@@ -74,3 +74,4 @@ while true; do
     fi
 
 done
+
