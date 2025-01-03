@@ -30,7 +30,8 @@ check_winner() {
     for combo in "${win_combinations[@]}"; do
         set -- $combo
         if [[ ${board[$1]} != " " && ${board[$1]} == ${board[$2]} && ${board[$2]} == ${board[$3]} ]]; then
-            echo "Player ${board[$1]} wins!"
+            print_board
+            echo && echo "Player ${board[$1]} wins!" && echo
             exit 0
         fi
     done
@@ -43,7 +44,8 @@ check_draw() {
             return
         fi
     done
-    echo "It's a draw!"
+    print_board
+    echo && echo "It's a draw!" && echo
     exit 0
 }
 
@@ -53,16 +55,17 @@ player="X"
 while true; do
     print_board
 
-    echo "Player $player, enter your move (0-8):"
+    echo && echo "Player $player, enter your move (0-8):" && echo
     read -r move
 
     if [[ ! $move =~ ^[0-8]$ ]] || [[ ${board[$move]} == "X" || ${board[$move]} == "O" ]]; then
-        echo "Invalid move. Try again."
+        echo && echo "Invalid move. Try again." && echo
         sleep 1
         continue
     fi
 
     board[$move]=$player
+
     check_winner
     check_draw
 
@@ -74,4 +77,3 @@ while true; do
     fi
 
 done
-
