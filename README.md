@@ -11,4 +11,4 @@
 
 5. CTRL+c to exit from in-progress game.   
    
-   ** -- Pavitra Kanetkar **
+   **-- Pavitra Kanetkar**
