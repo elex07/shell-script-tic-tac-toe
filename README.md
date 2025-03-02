@@ -9,4 +9,6 @@
 
 4. Start playing.
 
-5. CTRL+c to exit from in-progress game.
+5. CTRL+c to exit from in-progress game.   
+   
+   ** -- Pavitra Kanetkar **
